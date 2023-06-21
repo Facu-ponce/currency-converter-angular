@@ -5,30 +5,31 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth'
 
 @Injectable()
+
 export class LoginService{
+
   constructor(private router:Router){}
 
-  token!: string;
+  token:string='';
 
-  login(email:string, password:string){
+    login(email:string, password:string){
 
-    firebase.auth().signInWithEmailAndPassword(email, password).then(
+      firebase.auth().signInWithEmailAndPassword(email, password).then(
 
-      response=>{
-        firebase.auth().currentUser?.getIdToken().then(
-          token=>{
+        response=>{
+          firebase.auth().currentUser?.getIdToken().then(
 
-            this.token=token;
-            this.router.navigate(['/'])
-          }
-        )
-      }
+            token=>{
+              this.token=token;
+              this.router.navigate(['/converter'])
+            }
+          )
+        }
+      );
 
-    );
-
-  }
-  getIdToken(){
-    return this.token;
-  }
+    }
+    getIdToken(){
+      return this.token;
+    }
 
 }

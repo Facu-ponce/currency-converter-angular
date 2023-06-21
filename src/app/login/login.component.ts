@@ -8,6 +8,8 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  user:string='';
+  password:string='';
   constructor(private loginService:LoginService) {
 
   }
@@ -15,10 +17,13 @@ export class LoginComponent {
 
   }
 
-  login(form:NgForm){
-    const email=form.value.email
-    const password=form.value.password
-    this.loginService.login(email, password);
+  login(user:string, password:string){
+    const email=user;
+    const loginpassword=password;
+    this.loginService.login(email, loginpassword);
+  }
+  makeRequest(){
+
   }
 
 }
