@@ -11,11 +11,14 @@ import { ConverterDisplayComponent } from './converter-display/converter-display
 import { LoginService } from './login/login.service';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { LogoutComponent } from './logout/logout.component';
+import { LoginGuardian } from './login/login-guardian';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent},
   {path:'login', component:LoginComponent},
-  {path:'converter', component:ConverterDisplayComponent},
+  {path:'converter', component:ConverterDisplayComponent, canActivate:[LoginGuardian]},
+  {path:'**', component:LogoutComponent},
 ];
 
 @NgModule({
@@ -24,6 +27,7 @@ const appRoutes:Routes=[
     LoginComponent,
     ConverterDisplayComponent,
     HomeComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,7 @@ const appRoutes:Routes=[
 
 
   ],
-  providers: [DataServices, LoginService],
+  providers: [DataServices, LoginService, LoginGuardian],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

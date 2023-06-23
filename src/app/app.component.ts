@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
 import firebase from 'firebase/compat/app';
+import { LoginService } from './login/login.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'currency-converter';
+
+  constructor(private LoginService:LoginService){
+
+  }
 
   ngOnInit(): void{
     firebase.initializeApp({
@@ -21,4 +27,14 @@ export class AppComponent {
       measurementId: "G-TNL8Q3NBS5"
     });
   }
+
+  accsesLogin(){
+    return this.LoginService.accsesLogin();
+  }
+
+  logout(){
+
+    this.LoginService.logout();
+  }
+
 }

@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Currency Converter</title>
-</head>
-<body>
-  <h1>Currency Converter</h1>
+<h1>Currency Converter</h1>
   <form>
-    <p class="label-control">From Currency </p>
+    <p class="label-control">From Currency:</p>
     <div class="container">
-        <div class="form-group">
-          <select [(ngModel)]="fromCurrency" (ngModelChange)="this.onSelectCurrency($event)">
-            <option *ngFor="let currency of currencyArray" [value]="currency.code">{{ currency.code }}</option>
-          </select>
-          <input type="number" name="fromCurrency" id="fromCurrency" placeholder="0" value="1" class="form-control" [(ngModel)]="from">
-        </div>
-        <div class="change">
-          <button type="button" class="btn btn-primary submit-button" (click)="this.convertCurrency(fromCurrency, toCurrency, from, to)">Change</button>
-        </div>
-        <p class="label-control">To Currency </p>
-        <div class="form-group">
-          <select [(ngModel)]="toCurrency">
-            <option *ngFor="let currency of currencyArray" [value]="currency.code">{{ currency.code }}</option>
-          </select>
-          <input type="number" name="toCurrency" id="toCurrency" placeholder="0" class="form-control"  [(ngModel)]="to">
-        </div>
+      <div class="form-group">
+        <select [(ngModel)]="fromCurrency" name="fromCurrency" (ngModelChange)="onSelectCurrency($event)">
+          <option *ngFor="let currency of currencyArray" [value]="currency.code">{{ currency.code }}</option>
+        </select>
+        <input type="number" name="fromAmount" id="fromAmount" placeholder="0" class="form-control"
+          [(ngModel)]="fromAmount">
+      </div>
+      <div class="change">
+        <button type="button" class="btn btn-primary submit-button"
+          (click)="this.convertCurrency(fromCurrency, toCurrency, fromAmount, toAmount)">Change</button>
+      </div>
+      <p class="label-control">To Currency:</p>
+      <div class="form-group">
+        <select [(ngModel)]="toCurrency" name="toCurrency" (ngModelChange)="onSelectCurrency($event)">
+          <option *ngFor="let currency of currencyArray" [value]="currency.code">{{ currency.code }}</option>
+        </select>
+        <input type="number" name="toAmount" id="toAmount" placeholder="0" class="form-control" [(ngModel)]="toAmount">
+      </div>
     </div>
   </form>
-</body>
-</html>

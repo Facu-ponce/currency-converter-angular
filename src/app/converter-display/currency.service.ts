@@ -22,7 +22,7 @@ export class CurrencyService {
     return this.http.get(this.API_URL, requestOptions);
   }
 
-  convertCurrency(to: string, from: string, amount: number): Observable<any> {
+  convertCurrency(to: string, from: string, amount: string): Observable<any> {
     const url = `${this.CONVERT_API_URL}?to=${to}&from=${from}&amount=${amount}`;
     const headers = new HttpHeaders().append('apikey', this.API_KEY);
     const requestOptions = {
@@ -31,13 +31,4 @@ export class CurrencyService {
 
     return this.http.get(url, requestOptions);
   }
-
-  }
-
-//list
-//live
-//convert
-//historical
-//timeframe
-//change
-
+}

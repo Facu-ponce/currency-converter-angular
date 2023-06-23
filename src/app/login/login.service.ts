@@ -32,4 +32,18 @@ export class LoginService{
       return this.token;
     }
 
+    accsesLogin(){
+      return this.token;
+    }
+
+    logout(){
+
+      firebase.auth().signOut().then(()=>{
+
+        this.token="";
+        this.router.navigate([""])
+
+      });
+    }
+
 }

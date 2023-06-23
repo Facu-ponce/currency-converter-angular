@@ -6,10 +6,11 @@ import { CurrencyService } from './currency.service';
   templateUrl: './converter-display.component.html',
   styleUrls: ['./converter-display.component.scss']
 })
+
 export class ConverterDisplayComponent implements OnInit {
   currencyArray:any;
-  from='';
-  to='';
+  fromAmount: string = '0';
+  toAmount: string = '0';
   fromCurrency: any;
   toCurrency: any;
 
@@ -28,13 +29,14 @@ export class ConverterDisplayComponent implements OnInit {
   }
 
   convertCurrency(from: string, to: string, fromCurrency: any, toCurrency: any){
-    //console.log(from, to);
-    //console.log(fromCurrency, toCurrency);
-    //TODO:callConvertService
+    this.currencyService.convertCurrency(this.toCurrency,this.fromCurrency,this.fromAmount).subscribe(result => {
+      console.log(result);
+      this.toAmount = result.result;
+    })
   };
+
   onSelectCurrency(event: any){
     //console.log(event);
-    //TODO:updateDropDownSelection
   };
 
 }
