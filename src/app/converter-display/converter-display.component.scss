@@ -5,30 +5,21 @@
 *{
   box-sizing: border-box;
 }
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    padding: 20px;
-}
-
 h1{
     color: #480ca8;
-}
-
-p {
     text-align: center;
 }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: ffffff;
+  height: 100vh;
+}
+
 .submit-button {
-  background-color: #480ca8;
-  border-color: #480ca8;
-  border:   4px solid #480ca8;
+  background-color: #480ca86b;
+  border-color: #480ca86b;
+  border:   4px solid #480ca86b;
   color: #fff;
   border-radius: 34px;
   padding: 10px 25px;
@@ -39,42 +30,29 @@ p {
   width: 120px;
   height: 50px;
 }
-.conversor-imagen{
-    width: 150px;
+.submit-button:hover{
+  transform: scale(1.1);
+  transition: all .3s ease;
+  background-color: transparent;
+  color: #480ca86b;
+  box-shadow: none;
 }
 
-.coin{
-    padding: 40px 0;
-    display: ruby;
-    align-items: center;
-    justify-content: space-between;
+.change{
+  text-align: center;
 }
 
-.moneda select{
-    padding: 10px 20px 10px 10px;
-    border: 1px solid #dedede;
-    font-size: 16px;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
+.form-control{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
 }
-
-.moneda input {
-    border: 0;
-    font-size: 30px;
-    text-align: right;
+.form-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.taza-cambio-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-select:focus, input:focus, button:focus{
-    outline: 0;
-}
-
-.btn btn-primary submit-button{
+.label-control{
   text-align: center;
 }
