@@ -9,7 +9,7 @@ export class CurrencyService {
 
   private readonly API_URL = 'https://api.apilayer.com/currency_data/list';
   private readonly CONVERT_API_URL = 'https://api.apilayer.com/currency_data/convert';
-  private readonly API_KEY = 'J4yXuMtVYHkB9kKQrK22OFbaBuQ8FasR';
+  private readonly API_KEY = 'gop01NYd5UJnid4RLAWqVZoMjqCI8WAA';
 
   constructor(private http: HttpClient) { }
 
@@ -30,5 +30,12 @@ export class CurrencyService {
     };
 
     return this.http.get(url, requestOptions);
+  }
+
+  getHistoricalData(date: string) {
+    const headers = new HttpHeaders().set('apikey', this.API_KEY);
+    const apiUrl = `https://api.apilayer.com/currency_data/historical?date=${date}`;
+
+    return this.http.get(apiUrl, { headers });
   }
 }

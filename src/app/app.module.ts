@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
 import { LoginGuardian } from './login/login-guardian';
+import { ChartComponent } from './chart/chart.component';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent},
@@ -28,6 +29,7 @@ const appRoutes:Routes=[
     ConverterDisplayComponent,
     HomeComponent,
     LogoutComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,
