@@ -1,8 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: ffffff;
-  height: 100vh;
+  background-color: #ffffff;
+  height: 100%;
 }
 
 .login-container{
@@ -11,8 +11,9 @@ body {
   margin-bottom: 25px;
   width: 50%;
 }
+
 .login-card{
-  background: #f8f9fa;
+  background: #ffffff;
   color: #000000;
 }
 .submit-button {
@@ -41,7 +42,7 @@ body {
 .submit-button:hover{
   transform: scale(1.1);
   transition: all .3s ease;
-  background-color: ffffff;
+  background-color: #ffffff;
   color: #480ca8;
   box-shadow: none;
 }
@@ -49,6 +50,7 @@ body {
   box-shadow: none;
 }
 .form-control:focus {
-  box-shadow: 0 0 0 0.25rem rgba(176, 176, 176, 0.657);
+  box-shadow: 0 0 0 0.25rem rgb(176, 176, 176);
   border-color: #ffffff;
+
 }

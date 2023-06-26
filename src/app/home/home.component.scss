@@ -10,5 +10,19 @@ body {
   margin: 0;
   padding: 0;
   background-color: ffffff;
-  height: 100vh;
+  height: 100%;
 }
+.image-link {
+  display: flex;
+  text-decoration: none;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-link img {
+  width: 500px;
+  height: auto;
+}
+
+
