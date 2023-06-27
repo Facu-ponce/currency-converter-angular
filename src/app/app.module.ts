@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
 import { LoginGuardian } from './login/login-guardian';
 import { ChartComponent } from './chart/chart.component';
+import { NgChartsModule } from 'ng2-charts';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent},
@@ -33,6 +34,7 @@ const appRoutes:Routes=[
   ],
   imports: [
     BrowserModule,
+    NgChartsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     AppRoutingModule,

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import Chart from 'chart.js/auto';
+import { Component, Input, OnInit } from '@angular/core';
+import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js/auto';
 import { CurrencyService } from '../converter-display/currency.service';
 
 @Component({
@@ -10,23 +10,22 @@ import { CurrencyService } from '../converter-display/currency.service';
 
 export class ChartComponent implements OnInit {
 
-  rates=[]
-  constructor(private currencyService: CurrencyService) { }
+  @Input() historicalData = [];
+  
+  public lineChartData: Array<any> = [
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Currency' },
+  ];
+  public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartOptions: any = {
+    responsive: true,
+  };
+  public lineChartLegend = true;
+  public lineChartType: ChartType = 'line';
+
+  constructor() { }
 
   ngOnInit() {
-    const date = '2023-05-24';
-
-    this.currencyService.getHistoricalData(date).subscribe(
-      data => {
-
-        console.log('HistoricalData:', data);
-      }
-
-    );
-  }
-
-  private convertObjectToArray(obj: { [key: string]: string }): { code: string, name: string }[] {
-    return Object.keys(obj).map(key => ({ code: key, name: obj[key] }));
+    console.log('data for chart is:',this.historicalData);
   }
 }
 
